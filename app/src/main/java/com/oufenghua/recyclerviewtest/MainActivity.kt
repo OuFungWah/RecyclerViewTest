@@ -1,21 +1,19 @@
 package com.oufenghua.recyclerviewtest
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
 import android.view.View
 import androidx.recyclerview.widget.GridLayoutManager
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlin.random.Random
 
-class MainActivity : BaseActivity(), View.OnClickListener, Main.View {
+class MainActivity : BaseActivity(), View.OnClickListener, IMain.View {
 
     companion object {
         val TAG = "MainActivity"
         val BEST_IN_SCREEN = 18
     }
 
-    lateinit var adapter: TestAdapter
-    var random = Random(System.currentTimeMillis())
+    private lateinit var adapter: TestAdapter
+    private var random = Random(System.currentTimeMillis())
 
     override fun getLayout(): Int {
         return R.layout.activity_main
@@ -60,7 +58,7 @@ class MainActivity : BaseActivity(), View.OnClickListener, Main.View {
         ToastUtil.showShort(content)
     }
 
-    override var presenter: Main.Presenter? = null
+    override var presenter: IMain.Presenter? = null
 
 
     override fun onClick(view: View?) {

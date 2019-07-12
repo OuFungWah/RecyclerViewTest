@@ -4,7 +4,7 @@ import android.graphics.Color
 import kotlin.math.abs
 import kotlin.random.Random
 
-class MainPresenter(val view: Main.View) : Main.Presenter {
+class MainPresenter(val view: IMain.View) : IMain.Presenter {
 
     companion object {
 
@@ -24,7 +24,9 @@ class MainPresenter(val view: Main.View) : Main.Presenter {
     lateinit var model :MainModel
 
     override fun start() {
+        // 数据初始化
         model = MainModel(mutableListOf())
+        // 通知UI
         view.showRv(model.list)
     }
 
